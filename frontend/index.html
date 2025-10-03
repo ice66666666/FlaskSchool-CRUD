@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema Escolar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header Minimalista -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">📊 Sistema Escolar</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="usuarios.html">👥 Alumnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profesores.html">Profesores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="instituciones.html">Instituciones</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="window.app.logout()">Cerrar Sesión</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="container-fluid py-4">
+            <div class="container">
+                <!-- Header del Dashboard -->
+                <div class="dashboard-header fade-in">
+                    <h1 class="dashboard-title">Dashboard General</h1>
+                    <p class="dashboard-subtitle">Resumen estadístico del sistema educativo</p>
+                </div>
+
+                <!-- Estadísticas Principales -->
+                <div class="stats-grid fade-in-slide" style="animation-delay: 0.1s">
+                    <div class="card stats-card card-users">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="stats-label">Alumnos Registrados</div>
+                                    <div class="stats-number stats-animate" id="alumnos-count">-</div>
+                                    <div class="mini-chart mt-3">
+                                        <div class="mini-chart-bars" id="alumnos-chart">
+                                            <!-- Se llenarán con JS -->
+                                        </div>
+                                        <small class="text-muted">Últimos 7 días</small>
+                                    </div>
+                                </div>
+                                <div class="activity-icon users">👥</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card stats-card card-teachers">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="stats-label">Profesores Activos</div>
+                                    <div class="stats-number stats-animate" id="profesores-count">-</div>   
+                                    <div class="mini-chart mt-3">
+                                        <div class="mini-chart-bars" id="profesores-chart">
+                                            <!-- Se llenarán con JS -->
+                                        </div>
+                                        <small class="text-muted">Últimos 7 días</small>
+                                    </div>
+                                </div>
+                                <div class="activity-icon teachers">👨‍🏫</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card stats-card card-institutions">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="stats-label">Instituciones</div>
+                                    <div class="stats-number stats-animate" id="instituciones-count">-</div>
+                                    <div class="mini-chart mt-3">
+                                        <div class="mini-chart-bars" id="instituciones-chart">
+                                            <!-- Se llenarán con JS -->
+                                        </div>
+                                        <small class="text-muted">Últimos 7 días</small>
+                                    </div>
+                                </div>
+                                <div class="activity-icon institutions">🏫</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Gráficos -->
+                <div class="row fade-in-slide" style="animation-delay: 0.2s">
+                    <div class="col-lg-8">
+                        <!-- Gráfico Principal -->
+                        <div class="chart-container">
+                            <h3 class="chart-title">Distribución por Carreras</h3>
+                            <p class="chart-subtitle">Estudiantes registrados por programa académico</p>
+                            <div class="career-distribution-chart" id="careerChart">
+                                <!-- Gráfico de barras se generará aquí -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Actividad Reciente -->
+                        <div class="chart-container">
+                            <h3 class="chart-title">Actividad Reciente</h3>
+                            <p class="chart-subtitle">Últimas acciones en el sistema</p>
+                            <ul class="activity-list" id="recentActivity">
+                                <!-- Se llenará con datos -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Análisis Detallado -->
+                <div class="row fade-in-slide" style="animation-delay: 0.3s">
+                    <div class="col-12">
+                        <div class="chart-container">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h3 class="chart-title">Análisis Temporal</h3>
+                                    <p class="chart-subtitle">Crecemiento de registros en los últimos 30 días</p>
+                                </div>
+                                <div>
+                                    <ul class="nav nav-pills">
+                                        <li class="nav-item">
+                                            <button class="nav-link active" onclick="showTimelineChart('users')">Alumnos</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" onclick="showTimelineChart('teachers')">Profesores</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" onclick="showTimelineChart('institutions')">Instituciones</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-chart" id="timelineChart">
+                                <!-- Gráfico temporal se generará aquí -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Our JS -->
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

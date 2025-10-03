@@ -1,0 +1,101 @@
+# Gitignore para Flask School Backend
+# ==================================
+
+# Variables de entorno (NUNCA commits credenciales)
+.env
+.env.local
+.env.production
+.env.development
+
+# Python
+# ======
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logger
+*.log
+logs/
+log/
+
+# Base de datos local y backups
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+*.dump
+database/
+
+# Flask
+# ======
+instance/
+.webassets-cache
+
+# Migraciones (opcional - descomenta si quieres ignorar)
+# migrations/versions/*.py
+
+# Testing y coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# Archivos temporales
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Configuraciones locales
+config.local.py
+settings.local.py
+
+# Cache de aplicaciones
+.cache/
+cache/
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+*~
+
+# Volúmenes Docker (datos sensibles)
+volumes/
+data/
+

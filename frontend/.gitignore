@@ -1,0 +1,49 @@
+# Gitignore para Flask School Frontend
+# =====================================
+
+# Variables de entorno
+.env
+.env.local
+
+# Node.js (si llegas a usar Node en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# Archivos temporales
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+cache/
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Configuraciones locales
+config.local.js
+
